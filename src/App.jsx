@@ -1087,7 +1087,7 @@ const Navigation = ({ onHome, activePage }) => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative">
-        <div className="cursor-pointer group" onClick={onHome}><img src="/biologo.png" alt="Reliance Bio-Energy" className="h-12 md:h-16 w-auto object-contain hover:opacity-90 transition-opacity" /></div>
+        <div className="cursor-pointer group" onClick={onHome}><img src="/reliance-bioenergy-website/biologo.png" alt="Reliance Bio-Energy" className="h-12 md:h-16 w-auto object-contain hover:opacity-90 transition-opacity" /></div>
         
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
