@@ -501,10 +501,10 @@ const DetailedProcessGuide = () => {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { name: "Napier Grass", desc: "High-yield energy crop.", img: "/Napier.jpg?auto=format&fit=crop&q=80" },
-            { name: "Paddy Straw", desc: "Agricultural residue.", img: "/paddy.jpg?auto=format&fit=crop&q=80" },
-            { name: "Press Mud", desc: "Sugar industry by-product.", img: "/pressmud.jpg?auto=format&fit=crop&q=80" },
-            { name: "Cow Dung", desc: "Inoculum for digestion.", img: "/cow-dung.jpeg?auto=format&fit=crop&q=80" },
+            { name: "Napier Grass", desc: "High-yield energy crop.", img: "/reliance-bioenergy-website/Napier.jpg?auto=format&fit=crop&q=80" },
+            { name: "Paddy Straw", desc: "Agricultural residue.", img: "/reliance-bioenergy-website/paddy.jpg?auto=format&fit=crop&q=80" },
+            { name: "Press Mud", desc: "Sugar industry by-product.", img: "/reliance-bioenergy-website/pressmud.jpg?auto=format&fit=crop&q=80" },
+            { name: "Cow Dung", desc: "Inoculum for digestion.", img: "/reliance-bioenergy-website/cow-dung.jpeg?auto=format&fit=crop&q=80" },
           ].map((item, idx) => (
             <div key={idx} className="bg-slate-50 rounded-xl overflow-hidden border border-slate-100 group hover:shadow-lg transition-all">
               <div className="h-32 overflow-hidden"><img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" /></div>
@@ -922,7 +922,7 @@ const RolesTrainingModule = () => {
       code: 'SG-01',
       icon: ShieldAlert,
       theme: visualColors.red,
-      image: "/SG.jpg?auto=format&fit=crop&q=80", 
+      image: "/reliance-bioenergy-website/SG.jpg?auto=format&fit=crop&q=80", 
       videoUrl: "https://www.youtube.com/embed/HDN0My7Wj2k", 
       intro: "You are the first line of defense. Nothing enters without your check.",
       visualSteps: [
@@ -940,7 +940,7 @@ const RolesTrainingModule = () => {
       code: 'WB-01',
       icon: Scale,
       theme: visualColors.orange,
-      image: "/WB.jpg?auto=format&fit=crop&q=80",
+      image: "/reliance-bioenergy-website/WB.jpg?auto=format&fit=crop&q=80",
       videoUrl: "https://www.youtube.com/embed/S5Cke-fbUIs",
       intro: "You control the money. Accurate weight is critical.",
       visualSteps: [
@@ -1117,7 +1117,7 @@ const Navigation = ({ onHome, activePage }) => {
 const Hero = () => (
   <div className="relative h-[65vh] min-h-[550px] flex items-center justify-center overflow-hidden">
     <div className="absolute inset-0 z-0">
-      <img src="/background.jpg?auto=format&fit=crop&q=80" alt="Biogas Plant" className="w-full h-full object-cover" />
+      <img src="/reliance-bioenergy-website/background.jpg?auto=format&fit=crop&q=80" alt="Biogas Plant" className="w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-50"></div>
     </div>
     <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
