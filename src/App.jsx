@@ -246,6 +246,7 @@ const BusinessOverview = () => {
            <p className="text-lg text-slate-300 max-w-xl font-light">
              Accelerating India's transition to green energy. 
            </p>
+           <div className="mt-4"><AudioBtn text="Net Zero 2035. Accelerating India's transition to green energy. We are building over 100 plants and creating 5000 green jobs." /></div>
         </div>
 
         {/* 💎 THE FLOATING UTILITY STATS (Restored!) 💎 */}
@@ -319,6 +320,8 @@ const BusinessOverview = () => {
                  <p className="text-slate-600 text-lg leading-relaxed max-w-lg mb-8">
                     We don't just buy waste; we build relationships. Through our <strong className="text-green-700">Digital Aggregator Platform</strong>, we connect with 50,000+ farmers to procure Rice Straw & Press Mud, ensuring 100% year-round availability.
                  </p>
+                 <div className="mb-4"><AudioBtn text="Feedstock Security. We connect with 50,000 farmers via our digital platform to ensure 100% year-round supply of rice straw and press mud." size="sm" /></div>
+
                  
                  {/* Progress Bar Visual */}
                  <div className="mt-auto bg-white/60 backdrop-blur-sm p-4 rounded-2xl border border-green-100">
@@ -352,6 +355,7 @@ const BusinessOverview = () => {
             ₹<AnimatedCounter end={18000} duration={2500} />
         </div>
         <p className="text-slate-500 text-xs font-medium">Add. Income / Farmer</p>
+        <div className="mt-2"><AudioBtn text="Economic Revolution. Farmers earn 18,000 rupees extra income per year." size="sm" /></div>
       </div>
 
       {/* Bottom Section: Secondary Stats (Horizontal Grid) */}
@@ -407,6 +411,7 @@ const BusinessOverview = () => {
                  </div>
                  <h4 className="text-3xl font-black mb-1">Jio-bp</h4>
                  <p className="text-blue-200 text-sm font-medium mb-6">Retail Integration</p>
+                 <div className="mb-4"><AudioBtn text="Jio-bp Retail Integration. We are selling compressed biogas at over 1,400 stations across India." size="sm" /></div>
                  
                  <div className="inline-flex items-center gap-2 bg-black/20 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
                     <MapPin size={16} className="text-red-400" />
@@ -624,7 +629,9 @@ const ProductShowcase = () => {
               <div className={`absolute top-0 left-0 w-2 h-full bg-gradient-to-b ${current.color.gradient}`}></div>
               <h4 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><Info className={current.color.main} /> What is it?</h4>
               <p className="text-slate-600 text-lg leading-relaxed">{current.description}</p>
-              <div className="mt-6"><ProductAudioBtn text={current.description} /></div>
+              <div className="mt-6">
+                <AudioBtn text={`${current.name}. ${current.tagline}. ${current.description}`} />
+              </div>
             </div>
             <div>
               <h4 className="text-xl font-bold text-slate-400 uppercase tracking-widest mb-6 px-2">Key Benefits</h4>
@@ -632,7 +639,7 @@ const ProductShowcase = () => {
                 {current.benefits.map((benefit, idx) => (
                   <div key={idx} className={`bg-white p-5 rounded-2xl shadow-sm border ${current.color.border} flex items-start gap-4 hover:shadow-md transition-shadow`}>
                     <div className={`p-3 rounded-xl ${current.color.bg} ${current.color.main}`}><benefit.icon size={24} /></div>
-                    <div><h5 className="font-bold text-slate-800 text-lg">{benefit.title}</h5><p className="text-slate-500 text-sm">{benefit.text}</p></div>
+                    <div><h5 className="font-bold text-slate-800 text-lg">{benefit.title}<AudioBtn text={`${benefit.title}. ${benefit.text}`} size="sm" /></h5><p className="text-slate-500 text-sm">{benefit.text}</p></div>
                   </div>
                 ))}
               </div>
@@ -832,7 +839,7 @@ const DetailedProcessGuide = () => {
                     <h5 className="font-bold text-slate-400 text-[10px] uppercase tracking-widest mb-3">Output Specifications</h5>
                     <div className="grid grid-cols-3 gap-2">
                        <div className="text-center bg-slate-800 rounded-xl p-2 border border-slate-700">
-                          <div className="text-emerald-400 font-black text-lg">>96%</div>
+                          <div className="text-emerald-400 font-black text-lg"> >96%</div>
                           <div className="text-slate-400 text-[10px] font-bold">CH4 (Methane)</div>
                        </div>
                        <div className="text-center bg-slate-800 rounded-xl p-2 border border-slate-700">
@@ -1438,21 +1445,51 @@ const Hero = () => (
       </div>
       <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 md:mb-6 tracking-tight leading-tight">Fueling India's <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-200">Green Revolution</span></h1>
       <p className="text-base md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed px-4">Comprehensive training on Critical Installations, Process Flow, and Operational Safety for Reliance CBG facilities.</p>
+      <div className="flex justify-center mb-8">
+        <AudioBtn text="Welcome to Reliance Bio-Energy Training Portal. Learn about Critical Installations, Process Flow, and Operational Safety. Select a module below to begin." />
+        </div>    
     </div>
   </div>
 );
 
 const Card = ({ title, desc, icon: Icon, onClick, color }) => {
-  const colors = colorClasses[color]; 
+  const colors = colorClasses[color];
+
+  const handleAudioClick = (e) => {
+    e.stopPropagation(); 
+  };
+
   return (
-    <div onClick={onClick} className="group relative bg-white rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden border border-gray-100 hover:-translate-y-2 h-full flex flex-col">
-      <div className={`absolute top-0 right-0 w-32 h-32 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110 ${colors.bgSoft}`}></div>
-      <div className={`relative w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shrink-0 ${colors.bgLight}`}>
-        <Icon className={`${colors.text}`} size={28} />
+    <div 
+      onClick={onClick} 
+      // 👇 UPDATED CLASSES HERE:
+      // 1. Changed 'p-6' to 'p-4 md:p-8' (Smaller padding on mobile)
+      // 2. Added 'min-h-[180px]' to ensure they are all the same height in the grid
+      className="group relative bg-white rounded-2xl p-4 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden border border-gray-100 hover:-translate-y-2 h-full flex flex-col min-h-[180px]"
+    >
+      <div className={`absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110 ${colors.bgSoft}`}></div>
+      
+      {/* Header with Icon and Audio */}
+      <div className="flex justify-between items-start mb-3 md:mb-6 relative z-10">
+        {/* Made icon container smaller on mobile (w-10 vs w-14) */}
+        <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shrink-0 ${colors.bgLight}`}>
+          <Icon className={`${colors.text}`} size={20} /> {/* Reduced Icon size default, md will scale up via CSS if needed, or keep 20/24 */}
+        </div>
+
+        <div onClick={handleAudioClick}>
+           <AudioBtn text={`${title}. ${desc}`} size="sm" />
+        </div>
       </div>
-      <h3 className={`text-2xl font-bold text-gray-900 mb-3 transition-colors ${colors.hoverText}`}>{title}</h3>
-      <p className="text-gray-500 leading-relaxed mb-6 flex-grow">{desc}</p>
-      <div className={`flex items-center text-sm font-bold text-gray-900 transition-colors mt-auto ${colors.hoverText}`}>Start Module <ChevronRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" /></div>
+
+      {/* Title: Smaller text on mobile (text-lg), larger on desktop (md:text-2xl) */}
+      <h3 className={`text-lg md:text-2xl font-bold text-gray-900 mb-2 md:mb-3 transition-colors ${colors.hoverText} leading-tight`}>{title}</h3>
+      
+      {/* Description: Smaller text on mobile */}
+      <p className="text-gray-500 text-xs md:text-base leading-relaxed mb-4 flex-grow">{desc}</p>
+      
+      <div className={`flex items-center text-xs md:text-sm font-bold text-gray-900 transition-colors mt-auto ${colors.hoverText}`}>
+        Start <span className="hidden md:inline">&nbsp;Module</span> <ChevronRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
+      </div>
     </div>
   );
 };
@@ -1643,7 +1680,7 @@ const App = () => {
           <>
             <Hero />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 -mt-20 relative z-20">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                 <Card title="Business" desc="Market strategy, circular economy, and SCBG lifecycle." icon={TrendingUp} color="blue" onClick={() => navigateTo('business')} />
                 <Card title="Site Overview" desc="Critical Installations (CI) & Process Flow (PF)." icon={Factory} color="orange" onClick={() => navigateTo('site')} />
                 <Card title="Roles" desc="Duties for SS, SG, WB, and SAP operators." icon={Users} color="purple" onClick={() => navigateTo('roles')} />
