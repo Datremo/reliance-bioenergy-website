@@ -177,8 +177,10 @@ const ProcessSimulation = () => {
                   <div className={`${isActive ? 'animate-bounce' : ''}`}>{node.icon}</div>
                   {isActive && <span className="absolute -top-1 -right-1 w-2 h-2 md:w-3 md:h-3 bg-white rounded-full border-2 border-emerald-600 animate-pulse" />}
                 </div>
-                <div className={`hidden md:block absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-slate-900/90 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded-full whitespace-nowrap border border-slate-700 shadow-xl transition-all ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1 group-hover/node:opacity-100'}`}>{node.title}</div>
-              </div>
+                <div className="absolute top-full mt-1 md:mt-2 left-1/2 -translate-x-1/2 bg-slate-900/80 backdrop-blur-sm text-white text-[8px] md:text-[10px] font-bold px-1.5 py-0.5 md:px-2 md:py-1 rounded-full whitespace-nowrap border border-slate-700 shadow-lg z-20">
+                  {node.title}
+                </div>              
+                </div>
             );
           })}
           {selectedNode && (
@@ -221,7 +223,7 @@ const BusinessOverview = () => {
     <div className="animate-fade-in space-y-12 py-8">
       
       {/* 1. COMPACT CINEMATIC HEADER WITH GLASS STATS */}
-      <div className="relative rounded-3xl overflow-hidden shadow-2xl group border-4 border-slate-900/10 h-[400px]">
+      <div className="relative rounded-3xl overflow-hidden shadow-3xl group border-4 border-slate-900/10 min-h-[500px] md:h-[400px]">
         {/* Background Image */}
         <div className="absolute inset-0 bg-slate-900">
            <img 
@@ -233,7 +235,7 @@ const BusinessOverview = () => {
         </div>
         
         {/* Main Title Content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 pb-24">
+            <div className="relative h-full flex flex-col items-center justify-center text-center p-6 pb-32 md:pb-24 z-10 pt-10 md:pt-6">
            <div 
              onClick={() => setShowVideoModal(true)}
              className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-full mb-4 cursor-pointer hover:scale-110 hover:bg-white/20 transition-all shadow-2xl group/play animate-pulse"
@@ -1216,10 +1218,10 @@ const RolesTrainingModule = ({ lang, onComplete }) => {
       videoUrl: "https://www.youtube.com/embed/HDN0My7Wj2k", 
       intro: "You are the first line of defense. Nothing enters without your check.",
       visualSteps: [
-        { title: "Stop The Vehicle", desc: "Raise your hand firmly. Lower the boom barrier.", why: "Prevent unauthorized entry.", img: "/stopvehicle.png?auto=format&fit=crop&q=80" },
-        { title: "Check ID Card", desc: "Match the face with the photo. Check expiry.", why: "Ensure only authorized staff enters.", img: "https://images.unsplash.com/photo-1555529733-0e670560f7e1?auto=format&fit=crop&q=80&w=400&q=60" },
-        { title: "Full Frisking", desc: "Pat down from shoulders to ankles.", why: "Find hidden matches or lighters.", img: "https://plus.unsplash.com/premium_photo-1661331815343-f14bf2e60472?auto=format&fit=crop&q=80&w=400&q=60" },
-        { title: "Vehicle Search", desc: "Open trunk. Use mirror for under-chassis.", why: "Contraband can be hidden in cars.", img: "https://images.unsplash.com/photo-1549469755-671e2205047b?auto=format&fit=crop&q=80&w=400&q=60" }
+        { title: "Stop The Vehicle", desc: "Raise your hand firmly. Lower the boom barrier.", why: "Prevent unauthorized entry.", img: "https://www.shutterstock.com/image-photo/security-guard-stopping-car-260nw-2470323045.jpg?auto=format&fit=crop&q=80" },
+        { title: "Check ID Card", desc: "Match the face with the photo. Check expiry.", why: "Ensure only authorized staff enters.", img: "https://static01.nyt.com/images/2012/03/20/business/Security/Security-jumbo.jpg?auto=format&fit=crop&q=80&w=400&q=60" },
+        { title: "Full Frisking", desc: "Pat down from shoulders to ankles.", why: "Find hidden matches or lighters.", img: "https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2020/04/21/Pictures/_9df77c5e-83c0-11ea-81b1-a01beea4c212.jpg?auto=format&fit=crop&q=80&w=400&q=60" },
+        { title: "Vehicle Search", desc: "Open trunk. Use mirror for under-chassis.", why: "Contraband can be hidden in cars.", img: "/reliance-bioenergy-website/vehiclesearch.jpg?auto=format&fit=crop&q=80&w=400&q=60" }
       ],
       doDonts: { doImg: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=400&q=60", doText: "Always stay alert and standing.", dontImg: "https://images.unsplash.com/photo-1534614971-6be99a7a3ffd?auto=format&fit=crop&q=80&w=400&q=60", dontText: "Never sleep on duty." },
       safety: { gear: ["Safety Helmet", "Reflective Jacket", "Safety Shoes"], note: "No Uniform = No Duty." }
@@ -1408,11 +1410,6 @@ const Navigation = ({ onHome, lang, setLang }) => {
           {['Overview', 'HSE Safety', 'Operations'].map((item) => (<button key={item} className={`text-sm font-medium transition-colors hover:text-green-500 ${isScrolled ? 'text-gray-600' : 'text-white/90'}`}>{item}</button>))}
           <button className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-green-500/30">Employee Login</button>
         </div>
-
-        <button className="md:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-          {mobileMenuOpen ? <X size={24} className={isScrolled ? 'text-gray-800' : 'text-white'} /> : <Menu size={24} className={isScrolled ? 'text-gray-800' : 'text-white'} />}
-        </button>
-     
         {/* Mobile Menu Button */}
         <button className="md:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           {mobileMenuOpen ? <X size={24} className={isScrolled ? 'text-gray-800' : 'text-white'} /> : <Menu size={24} className={isScrolled ? 'text-gray-800' : 'text-white'} />}
